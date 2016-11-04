@@ -1,6 +1,7 @@
 package ml.combust.bundle.dsl
 
 import java.io.File
+import java.util.UUID
 
 import ml.combust.BuildValues
 import ml.combust.bundle.{BundleContext, BundleRegistry, HasBundleRegistry}
@@ -84,7 +85,8 @@ object Bundle {
     Bundle(name = name,
       format = format,
       version = Bundle.version,
-      attributes = attributes, nodes)
+      attributes = attributes,
+      nodes = nodes)
   }
 }
 
@@ -94,12 +96,14 @@ object Bundle {
   * @param format serialization format of the [[Bundle]]
   * @param version Bundle.ML version used for serializing
   * @param attributes optional [[AttributeList]] to serialize with the bundle
+  * @param uid unique id for this bundle
   * @param nodes list of root nodes in the bundle
   */
 case class BundleMeta(name: String,
                       format: SerializationFormat,
                       version: String,
                       attributes: Option[AttributeList],
+                      uid: UUID,
                       nodes: Seq[String])
 
 /** Root object for serializing Bundle.ML pipelines and graphs.
@@ -109,12 +113,14 @@ case class BundleMeta(name: String,
   * @param version Bundle.ML version used for serializing
   * @param attributes optional [[AttributeList]] to serialize with the bundle
   * @param nodes list of root nodes in the bundle
+  * @param uid uid for this bundle
   */
 case class Bundle(name: String,
                   format: SerializationFormat,
                   version: String,
                   override val attributes: Option[AttributeList],
-                  nodes: Seq[Any]) extends HasAttributeList[Bundle] {
+                  nodes: Seq[Any],
+                  uid: UUID = UUID.randomUUID()) extends HasAttributeList[Bundle] {
   /** Create meta data for this bundle.
     *
     * @param hr bundle registry for custom types
@@ -126,6 +132,7 @@ case class Bundle(name: String,
       format = format,
       version = version,
       attributes = attributes,
+      uid = uid,
       nodes = nodeNames)
   }
 
