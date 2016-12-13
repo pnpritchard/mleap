@@ -1,6 +1,6 @@
 package ml.combust.mleap.core.regression
 
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 import org.apache.spark.ml.linalg.mleap.BLAS
 
 /** Class for linear regression model.

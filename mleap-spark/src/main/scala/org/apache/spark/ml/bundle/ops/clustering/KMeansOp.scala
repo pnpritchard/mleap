@@ -5,7 +5,7 @@ import ml.combust.bundle.dsl._
 import ml.combust.bundle.op.{OpModel, OpNode}
 import org.apache.spark.ml.bundle.SparkBundleContext
 import org.apache.spark.ml.clustering.KMeansModel
-import org.apache.spark.ml.linalg.{DenseVector, SparseVector}
+import org.apache.spark.mllib.linalg.{DenseVector, SparseVector}
 import org.apache.spark.mllib.clustering
 import org.apache.spark.mllib.linalg.Vectors
 
@@ -49,10 +49,11 @@ class KMeansOp extends OpNode[SparkBundleContext, KMeansModel, KMeansModel] {
       case SparseVector(size, indices, values) => Vectors.sparse(size, indices, values)
     }
 
-    new KMeansModel(uid = node.name,
-      parentModel = new clustering.KMeansModel(clusterCenters)).
-      setFeaturesCol(node.shape.input("features").name).
-      setPredictionCol(node.shape.output("prediction").name)
+    val m = new KMeansModel(uid = node.name,
+      parentModel = new clustering.KMeansModel(clusterCenters))
+    m.set(m.featuresCol, node.shape.input("features").name)
+    m.set(m.predictionCol, node.shape.input("prediction").name)
+    m
   }
 
   override def shape(node: KMeansModel): Shape = Shape().withInput(node.getFeaturesCol, "features").

@@ -2,7 +2,7 @@ package ml.combust.mleap.runtime.reflection
 
 import ml.combust.mleap.runtime.MleapContext
 import ml.combust.mleap.runtime.types._
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 
 import scala.collection.mutable
 

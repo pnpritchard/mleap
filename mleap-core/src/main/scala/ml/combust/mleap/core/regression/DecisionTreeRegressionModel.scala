@@ -1,6 +1,6 @@
 package ml.combust.mleap.core.regression
 
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 import ml.combust.mleap.core.tree.{DecisionTree, Node}
 
 /** Class for a decision tree regression model.

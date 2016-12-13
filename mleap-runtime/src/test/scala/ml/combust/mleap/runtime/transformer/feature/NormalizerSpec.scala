@@ -3,7 +3,7 @@ package ml.combust.mleap.runtime.transformer.feature
 import ml.combust.mleap.core.feature.NormalizerModel
 import ml.combust.mleap.runtime.{LeapFrame, LocalDataset, Row}
 import ml.combust.mleap.runtime.types.{StructField, StructType, TensorType}
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**

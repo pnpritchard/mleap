@@ -5,7 +5,7 @@ import ml.combust.bundle.dsl._
 import ml.combust.bundle.op.{OpModel, OpNode}
 import org.apache.spark.ml.bundle.SparkBundleContext
 import org.apache.spark.ml.feature.PCAModel
-import org.apache.spark.ml.linalg.{DenseMatrix, DenseVector}
+import org.apache.spark.mllib.linalg.{DenseMatrix, DenseVector}
 
 /**
   * Created by hollinwilkins on 10/12/16.
@@ -27,8 +27,7 @@ class PcaOp extends OpNode[SparkBundleContext, PCAModel, PCAModel] {
       val tt = model.value("principal_components").bundleDataType.getTensor
       val values = model.value("principal_components").getTensor[Double].toArray
       new PCAModel(uid = "",
-        pc = new DenseMatrix(tt.dimensions.head, tt.dimensions(1), values),
-        explainedVariance = new DenseVector(Array()))
+        pc = new DenseMatrix(tt.dimensions.head, tt.dimensions(1), values))
     }
   }
 
@@ -41,8 +40,7 @@ class PcaOp extends OpNode[SparkBundleContext, PCAModel, PCAModel] {
   override def load(node: Node, model: PCAModel)
                    (implicit context: BundleContext[SparkBundleContext]): PCAModel = {
     new PCAModel(uid = node.name,
-      pc = model.pc,
-      explainedVariance = model.explainedVariance).
+      pc = model.pc).
       setInputCol(node.shape.standardInput.name).
       setOutputCol(node.shape.standardOutput.name)
   }

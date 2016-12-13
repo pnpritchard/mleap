@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.feature
 
 import ml.combust.mleap.core.annotation.SparkCode
-import org.apache.spark.ml.linalg.{Vector, Vectors}
+import org.apache.spark.mllib.linalg.{Vector, Vectors}
 import ml.combust.mleap.core.util.Murmur3_x86_32._
 import ml.combust.mleap.core.util.Platform
 

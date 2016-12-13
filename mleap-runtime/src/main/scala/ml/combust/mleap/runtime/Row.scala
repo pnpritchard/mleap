@@ -2,7 +2,7 @@ package ml.combust.mleap.runtime
 
 import ml.combust.mleap.runtime.Row.RowSelector
 import ml.combust.mleap.runtime.function.UserDefinedFunction
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 
 import scala.collection.mutable
 

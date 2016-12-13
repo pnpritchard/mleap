@@ -6,7 +6,7 @@ import ml.combust.mleap.runtime.transformer.feature.StandardScaler
 import ml.combust.bundle.op.{OpModel, OpNode}
 import ml.combust.bundle.dsl._
 import ml.combust.mleap.runtime.MleapContext
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 
 /**
   * Created by hollinwilkins on 8/22/16.

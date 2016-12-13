@@ -1,6 +1,6 @@
 package ml.combust.mleap.core.feature
 
-import org.apache.spark.ml.linalg.{DenseMatrix, Matrices, Vectors}
+import org.apache.spark.mllib.linalg.{DenseMatrix, Matrices, Vectors}
 import org.scalatest.FunSpec
 
 /**

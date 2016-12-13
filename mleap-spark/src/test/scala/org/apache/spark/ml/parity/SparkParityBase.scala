@@ -4,13 +4,14 @@ import java.io.File
 
 import ml.combust.mleap.runtime
 import org.apache.spark.ml.Transformer
-import org.apache.spark.sql.{DataFrame, SparkSession}
+import org.apache.spark.sql.{DataFrame, SQLContext}
 import org.scalatest.{BeforeAndAfterAll, FunSpec}
 import ml.combust.mleap.spark.SparkSupport.{MleapTransformerOps, SparkTransformerOps}
 import ml.combust.mleap.runtime.MleapSupport.FileOps
 import com.databricks.spark.avro._
 import ml.combust.bundle.serializer.FileUtil
 import ml.combust.mleap.runtime.MleapContext
+import org.apache.spark.{SparkConf, SparkContext}
 import org.apache.spark.ml.bundle.SparkBundleContext
 import org.apache.spark.sql.functions.col
 
@@ -21,8 +22,8 @@ object SparkParityBase extends FunSpec {
   val sparkRegistry = SparkBundleContext.defaultContext
   val mleapRegistry = MleapContext.defaultContext
 
-  def dataset(spark: SparkSession) = {
-    spark.sqlContext.read.avro(getClass.getClassLoader.getResource("datasources/lending_club_sample.avro").toString)
+  def dataset(spark: SQLContext) = {
+    spark.read.avro(getClass.getClassLoader.getResource("datasources/lending_club_sample.avro").toString)
   }
 }
 
@@ -31,12 +32,15 @@ abstract class SparkParityBase extends FunSpec with BeforeAndAfterAll {
   val dataset: DataFrame
   val sparkTransformer: Transformer
 
-  lazy val spark = SparkSession.builder().
-    appName("Spark/MLeap Parity Tests").
-    master("local[2]").
-    getOrCreate()
+  lazy val spark = {
+    val conf = new SparkConf()
+      .setAppName("Spark/MLeap Parity Tests")
+      .setMaster("local[2]")
+    val sc = SparkContext.getOrCreate(conf)
+    SQLContext.getOrCreate(sc)
+  }
 
-  override protected def afterAll(): Unit = spark.stop()
+  override protected def afterAll(): Unit = spark.sparkContext.stop()
 
   def mleapTransformer(transformer: Transformer): runtime.transformer.Transformer = {
     new File("/tmp/mleap/spark-parity").mkdirs()

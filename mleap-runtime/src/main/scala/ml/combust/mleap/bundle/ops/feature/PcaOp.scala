@@ -6,7 +6,7 @@ import ml.combust.bundle.op.{OpModel, OpNode}
 import ml.combust.mleap.core.feature.PcaModel
 import ml.combust.mleap.runtime.MleapContext
 import ml.combust.mleap.runtime.transformer.feature.Pca
-import org.apache.spark.ml.linalg.DenseMatrix
+import org.apache.spark.mllib.linalg.DenseMatrix
 
 /**
   * Created by hollinwilkins on 10/12/16.

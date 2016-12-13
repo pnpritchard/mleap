@@ -2,7 +2,7 @@ package ml.combust.mleap.json
 
 import ml.combust.mleap.runtime.{DefaultLeapFrame, LeapFrame, MleapContext}
 import ml.combust.mleap.runtime.types._
-import org.apache.spark.ml.linalg.{DenseVector, SparseVector, Vector}
+import org.apache.spark.mllib.linalg.{DenseVector, SparseVector, Vector}
 import spray.json.DefaultJsonProtocol._
 import spray.json._
 import spray.json.{JsValue, JsonFormat}

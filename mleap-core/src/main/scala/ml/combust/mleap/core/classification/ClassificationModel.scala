@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.classification
 
 import ml.combust.mleap.core.annotation.SparkCode
-import org.apache.spark.ml.linalg.{DenseVector, Vector, Vectors}
+import org.apache.spark.mllib.linalg.{DenseVector, Vector, Vectors}
 
 /** Trait for all classification models.
   */

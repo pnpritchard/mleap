@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.tree
 
 import ml.combust.mleap.core.annotation.SparkCode
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 
 /** Trait for a node in a decision tree.
   */

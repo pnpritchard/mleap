@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.classification
 
 import ml.combust.mleap.core.test.TestUtil
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**

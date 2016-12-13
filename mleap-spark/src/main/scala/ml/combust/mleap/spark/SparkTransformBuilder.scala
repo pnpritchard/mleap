@@ -14,7 +14,7 @@ import scala.util.Try
 case class SparkTransformBuilder(dataset: DataFrame) extends TransformBuilder[SparkTransformBuilder] {
   override def withOutput(name: String, selectors: Selector *)
                          (udf: UserDefinedFunction): Try[SparkTransformBuilder] = Try {
-    val sparkUdf: expressions.UserDefinedFunction = udf
+    val sparkUdf: org.apache.spark.sql.UserDefinedFunction = udf
     val sparkSelectors = selectors.map(sparkSelector)
     copy(dataset = dataset.withColumn(name, sparkUdf(sparkSelectors: _*)))
   }

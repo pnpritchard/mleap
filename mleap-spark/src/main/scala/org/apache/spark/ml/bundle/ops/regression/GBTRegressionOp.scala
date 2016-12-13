@@ -56,7 +56,7 @@ class GBTRegressionOp extends OpNode[SparkBundleContext, GBTRegressionModel, GBT
   override def load(node: Node, model: GBTRegressionModel)
                    (implicit context: BundleContext[SparkBundleContext]): GBTRegressionModel = {
     new GBTRegressionModel(uid = node.name,
-      _trees = model.trees,
+      _trees = model.trees.map(_.asInstanceOf[DecisionTreeRegressionModel]),
       _treeWeights = model.treeWeights,
       numFeatures = model.numFeatures)
   }

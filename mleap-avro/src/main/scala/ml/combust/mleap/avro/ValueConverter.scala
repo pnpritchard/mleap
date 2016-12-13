@@ -3,7 +3,7 @@ package ml.combust.mleap.avro
 import ml.combust.mleap.runtime.types._
 import org.apache.avro.generic.GenericData
 import org.apache.avro.util.Utf8
-import org.apache.spark.ml.linalg.{DenseVector, SparseVector, Vectors}
+import org.apache.spark.mllib.linalg.{DenseVector, SparseVector, Vectors}
 
 import scala.collection.JavaConverters._
 

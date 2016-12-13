@@ -1,7 +1,7 @@
 package org.apache.spark.sql.mleap
 
 import ml.combust.mleap.runtime.function.{UserDefinedFunction => MleapUDF}
-import org.apache.spark.sql.expressions.UserDefinedFunction
+import org.apache.spark.sql.UserDefinedFunction
 import ml.combust.mleap.runtime.types
 import ml.combust.mleap.runtime.types.{AnyType, ArrayType}
 import org.apache.spark.sql.Row
@@ -19,7 +19,7 @@ trait UserDefinedFunctionConverters {
   implicit def udfToSpark(udf: MleapUDF): UserDefinedFunction = {
     UserDefinedFunction(f = convertFunction(udf),
       dataType = sparkType(udf.returnType).get,
-      inputTypes = sparkInputs(udf.inputs))
+      inputTypes = sparkInputs(udf.inputs).getOrElse(Nil))
   }
 
   private def convertFunction(udf: MleapUDF): AnyRef = {

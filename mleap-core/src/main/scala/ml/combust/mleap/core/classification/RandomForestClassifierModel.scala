@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.classification
 
 import ml.combust.mleap.core.tree.TreeEnsemble
-import org.apache.spark.ml.linalg.{DenseVector, SparseVector, Vector, Vectors}
+import org.apache.spark.mllib.linalg.{DenseVector, SparseVector, Vector, Vectors}
 
 /** Companion object for constructing [[RandomForestClassifierModel]].
   */

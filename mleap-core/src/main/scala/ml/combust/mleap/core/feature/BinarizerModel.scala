@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.feature
 
 import ml.combust.mleap.core.annotation.SparkCode
-import org.apache.spark.ml.linalg.{Vectors, Vector}
+import org.apache.spark.mllib.linalg.{Vectors, Vector}
 
 import scala.collection.mutable.ArrayBuilder
 

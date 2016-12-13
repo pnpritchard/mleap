@@ -4,7 +4,7 @@ import java.io.{DataInputStream, DataOutputStream}
 import java.nio.charset.Charset
 
 import ml.combust.mleap.runtime.types._
-import org.apache.spark.ml.linalg.{DenseVector, SparseVector, Vector, Vectors}
+import org.apache.spark.mllib.linalg.{DenseVector, SparseVector, Vector, Vectors}
 
 import scala.reflect.ClassTag
 

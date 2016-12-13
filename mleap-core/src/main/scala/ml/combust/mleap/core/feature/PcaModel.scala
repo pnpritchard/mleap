@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.feature
 
 import ml.combust.mleap.core.annotation.SparkCode
-import org.apache.spark.ml.linalg._
+import org.apache.spark.mllib.linalg._
 
 /** Class for principal components analysis model.
   *

@@ -1,6 +1,6 @@
 package ml.combust.mleap.core.classification
 
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 
 /** Class for multinomial one vs rest models.
   *

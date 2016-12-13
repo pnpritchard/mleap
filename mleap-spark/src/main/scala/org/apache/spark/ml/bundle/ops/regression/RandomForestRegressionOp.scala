@@ -62,7 +62,7 @@ class RandomForestRegressionOp extends OpNode[SparkBundleContext, RandomForestRe
                    (implicit context: BundleContext[SparkBundleContext]): RandomForestRegressionModel = {
     new RandomForestRegressionModel(uid = node.name,
       numFeatures = model.numFeatures,
-      _trees = model.trees).
+      _trees = model.trees.map(_.asInstanceOf[DecisionTreeRegressionModel])).
       setFeaturesCol(node.shape.input("features").name).
       setPredictionCol(node.shape.input("prediction").name)
   }

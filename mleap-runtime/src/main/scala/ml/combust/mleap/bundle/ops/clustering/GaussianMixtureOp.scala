@@ -6,8 +6,8 @@ import ml.combust.bundle.op.{OpModel, OpNode}
 import ml.combust.mleap.core.clustering.GaussianMixtureModel
 import ml.combust.mleap.runtime.MleapContext
 import ml.combust.mleap.runtime.transformer.clustering.GaussianMixture
-import org.apache.spark.ml.linalg.{Matrices, Vectors}
-import org.apache.spark.ml.stat.distribution.MultivariateGaussian
+import org.apache.spark.mllib.linalg.{Matrices, Vectors}
+import org.apache.spark.mllib.stat.distribution.MultivariateGaussian
 
 /**
   * Created by hollinwilkins on 9/30/16.
@@ -21,9 +21,9 @@ class GaussianMixtureOp extends OpNode[MleapContext, GaussianMixture, GaussianMi
     override def store(model: Model, obj: GaussianMixtureModel)
                       (implicit context: BundleContext[MleapContext]): Model = {
       val (rows, cols) = obj.gaussians.headOption.
-        map(g => (g.cov.numRows, g.cov.numCols)).
+        map(g => (g.sigma.numRows, g.sigma.numCols)).
         getOrElse((-1, -1))
-      val (means, covs) = obj.gaussians.map(g => (g.mean, g.cov)).unzip
+      val (means, covs) = obj.gaussians.map(g => (g.mu, g.sigma)).unzip
       model.withAttr("means", Value.tensorList(means.map(_.toArray.toSeq).toSeq, Seq(-1))).
         withAttr("covs", Value.tensorList(covs.map(_.toArray.toSeq).toSeq, Seq(rows, cols))).
         withAttr("weights", Value.doubleList(obj.weights.toSeq))

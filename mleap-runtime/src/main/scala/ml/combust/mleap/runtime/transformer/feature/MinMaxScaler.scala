@@ -3,7 +3,7 @@ package ml.combust.mleap.runtime.transformer.feature
 import ml.combust.mleap.core.feature.MinMaxScalerModel
 import ml.combust.mleap.runtime.function.UserDefinedFunction
 import ml.combust.mleap.runtime.transformer.{FeatureTransformer, Transformer}
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 
 /**
   * Created by mikhail on 9/18/16.

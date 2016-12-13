@@ -6,7 +6,7 @@ import ml.combust.bundle.op.{OpModel, OpNode}
 import ml.combust.mleap.core.clustering.KMeansModel
 import ml.combust.mleap.runtime.MleapContext
 import ml.combust.mleap.runtime.transformer.clustering.KMeans
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 
 /**
   * Created by hollinwilkins on 9/30/16.

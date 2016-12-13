@@ -5,7 +5,7 @@ import org.apache.spark.ml.classification.LogisticRegressionModel
 import org.apache.spark.ml.feature.{StringIndexer, VectorAssembler}
 import org.apache.spark.ml.{Pipeline, Transformer}
 import org.apache.spark.sql.DataFrame
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 
 /**
   * Created by hollinwilkins on 10/30/16.

@@ -3,7 +3,7 @@ package ml.combust.mleap.core.clustering
 import ml.combust.mleap.core.annotation.SparkCode
 import ml.combust.mleap.core.linalg.LinalgUtils
 import org.apache.spark.ml.linalg.mleap.VectorWithNorm
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 
 /**
   * Created by hollinwilkins on 9/30/16.

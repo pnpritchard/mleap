@@ -3,7 +3,7 @@ package ml.combust.mleap.runtime.transformer.feature
 import ml.combust.mleap.core.feature.MaxAbsScalerModel
 import ml.combust.mleap.runtime.{LeapFrame, Row, LocalDataset}
 import ml.combust.mleap.runtime.types.{TensorType, StructField, StructType}
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**

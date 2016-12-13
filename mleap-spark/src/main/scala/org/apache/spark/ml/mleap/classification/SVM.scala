@@ -2,7 +2,7 @@ package org.apache.spark.ml.mleap.classification
 
 import ml.combust.mleap.core.annotation.SparkCode
 import org.apache.spark.ml.classification.{ProbabilisticClassificationModel, ProbabilisticClassifier}
-import org.apache.spark.ml.linalg
+import org.apache.spark.mllib.linalg
 import org.apache.spark.ml.param._
 import org.apache.spark.ml.util.Identifiable
 import org.apache.spark.mllib.classification
@@ -10,7 +10,7 @@ import org.apache.spark.mllib.linalg.{BLAS, Vector, Vectors}
 import org.apache.spark.mllib.optimization.{GradientDescent, HingeGradient, SquaredL2Updater}
 import org.apache.spark.mllib.regression.{GeneralizedLinearAlgorithm, LabeledPoint}
 import org.apache.spark.mllib.util.DataValidators
-import org.apache.spark.sql.{Dataset, Row}
+import org.apache.spark.sql.{DataFrame, Row}
 import org.apache.spark.sql.functions.col
 
 /**
@@ -165,7 +165,7 @@ class SVM(override val uid: String)
 
   override def copy(extra: ParamMap): SVM = defaultCopy(extra)
 
-  override protected def train(dataset: Dataset[_]): SVMModel = {
+  override protected def train(dataset: DataFrame): SVMModel = {
     val labeledPoints = dataset.select(col($(labelCol)), col($(featuresCol))).rdd.map {
       case Row(label: Double, features: linalg.Vector) => LabeledPoint(label, Vectors.dense(features.toArray))
     }

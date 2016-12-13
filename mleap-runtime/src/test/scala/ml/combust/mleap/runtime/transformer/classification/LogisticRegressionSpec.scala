@@ -3,7 +3,7 @@ package ml.combust.mleap.runtime.transformer.classification
 import ml.combust.mleap.core.classification.LogisticRegressionModel
 import ml.combust.mleap.runtime.{LeapFrame, LocalDataset, Row}
 import ml.combust.mleap.runtime.types.{StructField, StructType, TensorType}
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**

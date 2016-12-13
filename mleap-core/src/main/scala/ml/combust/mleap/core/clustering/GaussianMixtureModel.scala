@@ -2,8 +2,8 @@ package ml.combust.mleap.core.clustering
 
 import ml.combust.mleap.core.annotation.SparkCode
 import org.apache.spark.ml.linalg.mleap.Utils._
-import org.apache.spark.ml.linalg.{DenseVector, Vector, Vectors}
-import org.apache.spark.ml.stat.distribution.MultivariateGaussian
+import org.apache.spark.mllib.linalg.{DenseVector, Vector, Vectors}
+import org.apache.spark.mllib.stat.distribution.MultivariateGaussian
 
 /**
   * Created by hollinwilkins on 11/17/16.

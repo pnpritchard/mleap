@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.linalg
 
 import ml.combust.mleap.core.annotation.SparkCode
-import org.apache.spark.ml.linalg.{SparseVector, Vector, Vectors}
+import org.apache.spark.mllib.linalg.{SparseVector, Vector, Vectors}
 import org.apache.spark.ml.linalg.mleap.{BLAS, VectorWithNorm}
 
 /**

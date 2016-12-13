@@ -2,7 +2,7 @@ package org.apache.spark.sql.mleap
 
 import ml.combust.mleap.runtime.types
 import org.apache.spark.sql.types._
-import org.apache.spark.ml.linalg.VectorUDT
+import org.apache.spark.mllib.linalg.VectorUDT
 
 import scala.language.implicitConversions
 
@@ -18,8 +18,7 @@ trait TypeConverters {
     case types.DoubleType => Some(DoubleType)
     case lt: types.ArrayType => sparkType(lt.base).map(t => ArrayType(t, containsNull = false))
     case tt: types.TensorType if tt.dimensions.length == 1 => Some(new VectorUDT())
-    case ct: types.CustomType => UDTRegistration.getUDTFor(ct.klazz.getCanonicalName).
-      map(_.newInstance().asInstanceOf[UserDefinedType[_]])
+    case ct: types.CustomType => Some(ct.klazz.getAnnotation(classOf[SQLUserDefinedType]).udt().newInstance())
     case types.AnyType => None
   }
 }

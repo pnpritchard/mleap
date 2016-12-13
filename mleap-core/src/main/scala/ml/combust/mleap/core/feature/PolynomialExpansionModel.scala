@@ -2,8 +2,8 @@ package ml.combust.mleap.core.feature
 
 import ml.combust.mleap.core.annotation.SparkCode
 import org.apache.commons.math3.util.CombinatoricsUtils
-import org.apache.spark.ml.linalg.Vector
-import org.apache.spark.ml.linalg.{SparseVector, DenseVector}
+import org.apache.spark.mllib.linalg.Vector
+import org.apache.spark.mllib.linalg.{SparseVector, DenseVector}
 
 import scala.collection.mutable
 

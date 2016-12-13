@@ -5,7 +5,7 @@ import ml.combust.bundle.op.{OpModel, OpNode}
 import ml.combust.bundle.dsl._
 import org.apache.spark.ml.bundle.SparkBundleContext
 import org.apache.spark.ml.feature.StandardScalerModel
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 
 /**
   * Created by hollinwilkins on 8/21/16.

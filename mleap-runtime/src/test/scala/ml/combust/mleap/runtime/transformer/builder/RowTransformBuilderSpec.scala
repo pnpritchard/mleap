@@ -6,7 +6,7 @@ import ml.combust.mleap.runtime.transformer.feature.VectorAssembler
 import ml.combust.mleap.runtime.transformer.regression.LinearRegression
 import ml.combust.mleap.runtime.Row
 import ml.combust.mleap.runtime.types.{DoubleType, StructField, StructType}
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**

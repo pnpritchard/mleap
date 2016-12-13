@@ -4,7 +4,7 @@ import ml.combust.mleap.core.classification.GBTClassifierModel
 import ml.combust.mleap.runtime.test.TestUtil
 import ml.combust.mleap.runtime.{LeapFrame, LocalDataset, Row}
 import ml.combust.mleap.runtime.types.{StructField, StructType, TensorType}
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**

@@ -1,6 +1,6 @@
 package ml.combust.mleap.core.tree
 
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**

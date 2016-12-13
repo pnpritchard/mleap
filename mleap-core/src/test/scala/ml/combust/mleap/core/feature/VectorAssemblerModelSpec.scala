@@ -2,7 +2,7 @@ package ml.combust.mleap.core.feature
 
 import java.math.BigDecimal
 
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**

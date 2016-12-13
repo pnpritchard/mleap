@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.classification
 
 import ml.combust.mleap.core.tree.{DecisionTree, Node}
-import org.apache.spark.ml.linalg.{DenseVector, SparseVector, Vector}
+import org.apache.spark.mllib.linalg.{DenseVector, SparseVector, Vector}
 
 /** Class for decision tree classification models.
   *

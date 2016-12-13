@@ -1,7 +1,7 @@
 package ml.combust.mleap.core.regression
 
 import ml.combust.mleap.core.tree.TreeEnsemble
-import org.apache.spark.ml.linalg.{Vector, Vectors}
+import org.apache.spark.mllib.linalg.{Vector, Vectors}
 import org.apache.spark.ml.linalg.mleap.BLAS
 
 /** Companion object for constructing [[GBTRegressionModel]].

@@ -1,6 +1,6 @@
 package ml.combust.mleap.core.feature
 
-import org.apache.spark.ml.linalg.{Vector, Vectors}
+import org.apache.spark.mllib.linalg.{Vector, Vectors}
 
 /** Class for a one hot encoder model.
   *

@@ -1,6 +1,6 @@
 package ml.combust.mleap.core.classification
 
-import org.apache.spark.ml.linalg.{DenseVector, SparseVector, Vector, Vectors}
+import org.apache.spark.mllib.linalg.{DenseVector, SparseVector, Vector, Vectors}
 import org.apache.spark.ml.linalg.mleap.BLAS
 
 

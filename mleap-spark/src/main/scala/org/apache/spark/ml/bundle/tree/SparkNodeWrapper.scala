@@ -6,7 +6,7 @@ import ml.bundle.tree.Split.Split.{CategoricalSplit, ContinuousSplit}
 import ml.bundle.tree.Node.Node
 import ml.bundle.tree.Node.Node.{InternalNode, LeafNode}
 import ml.combust.bundle.tree.NodeWrapper
-import org.apache.spark.mllib.tree.impurity.ImpurityCalculator
+import org.apache.spark.mllib.tree.impurity.{GiniCalculator, ImpurityCalculator}
 
 /**
   * Created by hollinwilkins on 8/22/16.
@@ -25,7 +25,7 @@ object SparkNodeWrapper extends NodeWrapper[tree.Node] {
           }
           Split(Split.S.Categorical(CategoricalSplit(featureIndex = split.featureIndex,
             isLeft = isLeft,
-            numCategories = split.numCategories,
+            numCategories = split.leftCategories.length + split.rightCategories.length,
             categories = categories)))
         case split: tree.ContinuousSplit =>
           Split(Split.S.Continuous(ContinuousSplit(featureIndex = split.featureIndex,
@@ -43,7 +43,7 @@ object SparkNodeWrapper extends NodeWrapper[tree.Node] {
 
   override def leaf(node: LeafNode, withImpurities: Boolean): tree.Node = {
     val calc: ImpurityCalculator = if(withImpurities) {
-      ImpurityCalculator.getCalculator("gini", node.impurities.toArray)
+      new GiniCalculator(node.impurities.toArray)
     } else {
       null
     }

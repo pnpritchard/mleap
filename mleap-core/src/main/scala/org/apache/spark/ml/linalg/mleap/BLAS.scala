@@ -1,7 +1,7 @@
 package org.apache.spark.ml.linalg.mleap
 
 import ml.combust.mleap.core.annotation.SparkCode
-import org.apache.spark.ml.linalg
+import org.apache.spark.mllib.linalg
 
 /** BLAS public interface to the private mllib-local BLAS.
   */

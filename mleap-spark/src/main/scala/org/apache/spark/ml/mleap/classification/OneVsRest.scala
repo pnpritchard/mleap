@@ -33,11 +33,11 @@ import org.apache.spark.annotation.Since
 import org.apache.spark.ml._
 import org.apache.spark.ml.attribute._
 import org.apache.spark.ml.classification.{ClassificationModel, Classifier, ProbabilisticClassificationModel, ProbabilisticClassifier}
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 import org.apache.spark.ml.param.shared.HasProbabilityCol
 import org.apache.spark.ml.param.{Param, ParamMap, ParamPair, Params}
 import org.apache.spark.ml.util._
-import org.apache.spark.sql.{DataFrame, Dataset, Row}
+import org.apache.spark.sql.{DataFrame, Row}
 import org.apache.spark.sql.functions._
 import org.apache.spark.sql.types._
 import org.apache.spark.storage.StorageLevel
@@ -155,7 +155,7 @@ final class OneVsRestModel private[ml] (
   }
 
   @Since("2.0.0")
-  override def transform(dataset: Dataset[_]): DataFrame = {
+  override def transform(dataset: DataFrame): DataFrame = {
     // Check schema
     transformSchema(dataset.schema, logging = true)
 
@@ -334,7 +334,7 @@ final class OneVsRest @Since("1.4.0") (
   }
 
   @Since("2.0.0")
-  override def fit(dataset: Dataset[_]): OneVsRestModel = {
+  override def fit(dataset: DataFrame): OneVsRestModel = {
     transformSchema(dataset.schema)
 
     // determine number of classes either from metadata if provided, or via computation.

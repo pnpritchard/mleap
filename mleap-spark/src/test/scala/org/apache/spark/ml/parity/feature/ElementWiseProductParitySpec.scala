@@ -2,7 +2,7 @@ package org.apache.spark.ml.parity.feature
 
 import org.apache.spark.ml.parity.SparkParityBase
 import org.apache.spark.ml.feature.{ElementwiseProduct, VectorAssembler}
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.apache.spark.ml.{Pipeline, Transformer}
 import org.apache.spark.sql.DataFrame
 

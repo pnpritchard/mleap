@@ -3,7 +3,7 @@ package ml.combust.mleap.core.classification
 import ml.combust.mleap.core.regression.DecisionTreeRegressionModel
 import ml.combust.mleap.core.tree.TreeEnsemble
 import org.apache.spark.ml.linalg.mleap.BLAS
-import org.apache.spark.ml.linalg.{Vector, Vectors}
+import org.apache.spark.mllib.linalg.{Vector, Vectors}
 
 /** Companion object for constructing [[GBTClassifierModel]].
   */

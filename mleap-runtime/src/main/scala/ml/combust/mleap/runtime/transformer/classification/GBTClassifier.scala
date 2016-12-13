@@ -4,7 +4,7 @@ import ml.combust.mleap.core.classification.GBTClassifierModel
 import ml.combust.mleap.runtime.function.UserDefinedFunction
 import ml.combust.mleap.runtime.transformer.Transformer
 import ml.combust.mleap.runtime.transformer.builder.TransformBuilder
-import org.apache.spark.ml.linalg.Vector
+import org.apache.spark.mllib.linalg.Vector
 
 import scala.util.Try
 

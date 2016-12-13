@@ -3,7 +3,7 @@ package ml.combust.mleap.runtime.serialization
 import ml.combust.mleap.runtime.test.MyCustomObject
 import ml.combust.mleap.runtime.{LeapFrame, LocalDataset, MleapContext, Row}
 import ml.combust.mleap.runtime.types.{StringType, StructField, StructType, TensorType}
-import org.apache.spark.ml.linalg.Vectors
+import org.apache.spark.mllib.linalg.Vectors
 import org.scalatest.FunSpec
 
 /**
