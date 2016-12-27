@@ -29,6 +29,7 @@ case class BundleSerializer[Context](context: Context,
     */
   def write(bundle: Bundle): Unit = {
     BundleDirectorySerializer(context, tmp).write(bundle)
+    path.getParentFile.mkdirs()
 
     if(path.getPath.endsWith(".zip")) {
       FileUtil().zip(tmp, path)
